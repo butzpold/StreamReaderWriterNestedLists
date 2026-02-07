@@ -7,9 +7,9 @@ namespace StreamReaderWriterNestedLists
         static void Main(string[] args)
         {
             List<String[]> mainlist = new ();
-            string[] array1 = new string[3] { "Leo", "36", "12 00" };
-            string[] array2 = new string[3] { "Kari", "32", "16 00" };
-            string[] array3 = new string[3] { "Wendo", "33", "18 00" };
+            string[] array1 = new string[3] { "Luke", "28", "12 00" };
+            string[] array2 = new string[3] { "Leia", "26", "16 00" };
+            string[] array3 = new string[3] { "Han", "29", "18 00" };
 
             mainlist.Add(array1);
             mainlist.Add(array2);
@@ -19,7 +19,7 @@ namespace StreamReaderWriterNestedLists
             Console.WriteLine(mainlist[0].GetValue(0));
             Console.WriteLine(mainlist[0]);           
             // difference between System.String[] and System.String
-            string name = "LeoSingleStringTest";
+            string name = "LukeSingleStringTest";
             Console.WriteLine(name);
             Console.WriteLine(name.GetType());
 
@@ -53,7 +53,7 @@ namespace StreamReaderWriterNestedLists
                 }                
             }
             // create a .csv and write in the data of the nested list, if the .csv already exists it overrides the .csv 
-            using (var writer = new StreamWriter("VerschachtelteListe.csv", append: false))
+            using (var writer = new StreamWriter("NestedList.csv", append: false))
             {
                 foreach (var i in mainlist)
                 {
@@ -63,7 +63,7 @@ namespace StreamReaderWriterNestedLists
             }
             // read out the .csv linewise, transform the data and append it to the .csv
             List<string[]> rows = new ();
-            using (var reader = new StreamReader("VerschachtelteListe.csv"))
+            using (var reader = new StreamReader("NestedList.csv"))
             {
                 while(!reader.EndOfStream)
                 {
@@ -113,7 +113,7 @@ namespace StreamReaderWriterNestedLists
             Console.WriteLine("Spalte2:");
             Console.WriteLine(String.Join(";", columns[1]));
             // append the updated list to the .csv
-            using (var writer = new StreamWriter("VerschachtelteListe.csv", append: true))
+            using (var writer = new StreamWriter("NestedList.csv", append: true))
             {
                 foreach (var r in rows)
                 {
